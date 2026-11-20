@@ -45,9 +45,24 @@ void BuildGraph(int u,int  v,int weight){
     newNode->next = adj[v];
     adj[v] = newNode;
 
-    Node* newNode = new Node;
-    
+    Node* newNode1 = new Node;
+    newNode1->data = cities[v];
+    newNode1->weight = weight;
+    newNode1->next = adj[u];
+    adj[u] = newNode1;
+}
+void displayRoutes(){
+    for(int i=0;i<v;i++){
+        cout<<cities[i]<<"->";
 
+        Node* temp = adj[i];
+        while(temp!=NULL){
+            cout<<temp->data<<" "<<temp->weight<<endl;
+            temp = temp->next;
+        }
+        cout<<"NULL"<<endl;
+
+    }
 }
 void insert(int u,int v,int weight){
     BuildGraph(u,v,weight);
