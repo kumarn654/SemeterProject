@@ -12,6 +12,7 @@ class Node{
 
 };
 const int v = 6;
+const int MAX = 100;
 string cities[v] = {"Karachi","Makli","Hyderbad","Thana Bula Khan","Thatta","Mithi"};
 Node* adj[v]= {NULL};
 
@@ -40,6 +41,13 @@ Node* adj[v]= {NULL};
 //     }
 
 // }
+
+class Heap{
+    int arr[max];
+    int size = 0;
+
+    
+}
 void BuildGraph(int u,int  v,int weight){
     Node* newNode = new Node;
     newNode->data = cities[u];
@@ -62,29 +70,30 @@ void addEdge(){
     insert(2,3,50);
 
 }
-// void removeEdge(int vertex,string value){
-//     Node* temp = adj[vertex];
-//     Node* prev = NULL;
+void removeEdge(int vertex,string value){
+    Node* temp = adj[vertex];
+    Node* prev = NULL;
     
-//     while(temp!=NULL && temp->data!=value){
-//         prev = temp;
-//         temp = temp->next;
+    while(temp!=NULL && temp->data!=value){
+        prev = temp;
+        temp = temp->next;
 
-//     }
+    }
 
-//     if(temp == NULL){
-//         return;
-//     }
+    if(temp == NULL){
+        return;
+    }
 
-//     if(prev == NULL){
-//         adj[vertex] = temp->next;
-//     }else{
-//         prev->next = temp->next;
-//     }
+    if(prev == NULL){
+        adj[vertex] = temp->next;
+    }else{
+        prev->next = temp->next;
+    }
 
-//     delete temp;
-// }
-void displayRoutes(){
+    delete temp;
+}
+
+void displayAllCityRoutes(){
     for(int i=0;i<v;i++){
         cout<<cities[i]<<":";
 
@@ -98,16 +107,18 @@ void displayRoutes(){
         
     }
 }
+
 // void showMenu(){
 //     system("cls");
 //     cout<<"City Route Planner"<<endl;
 
-//     cout<<"Menu of City Route"<<endl;
+    // cout<<"Menu of City Route"<<endl;
 
-//     cout<<"1: Location of City"<<endl;
-//     cout<<"2: Search City"<<endl;
-//     cout<<"3: Display All Cities"<<endl;
-//     cout<<"4: Logout"<<endl;
+    // cout<<"1: Location of City"<<endl;
+    // cout<<"2: Search City"<<endl;
+    // cout<<"3: Display All Cities"<<endl;
+    // cout<<"4: Logout"<<endl;
+
 
 //     int num;
 //     cout<<"Enter the Choice:";
@@ -119,7 +130,7 @@ void displayRoutes(){
 //     }
 
 //     if(num == 1){
-//         addEdge();
+//         shortest distance  dijakis algorithms
 //     }else if(num == 2){
 //         // hamza part
 //         // search city 
@@ -131,10 +142,7 @@ void displayRoutes(){
 
 int main(){
         addEdge();
-        
-        removeEdge(0,"Karachi");
-        removeEdge(1,"Makli");
-        displayRoutes();
+        AllPossibleRoutes(0,1);
     
 //     cout<<"City Route PLanner"<<endl;
 //     cout<<endl;
@@ -167,7 +175,7 @@ int main(){
 //     }
 
 
-// cout<<"Hello World"<<endl;
+
 
     
 
