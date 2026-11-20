@@ -62,6 +62,28 @@ void addEdge(){
     insert(2,3,50);
 
 }
+void removeEdge(int vertex,string value){
+    Node* temp = adj[vertex];
+    Node* prev = NULL;
+    
+    while(temp!=NULL && temp->data!=value){
+        prev = temp;
+        temp = temp->next;
+
+    }
+
+    if(temp == NULL){
+        return;
+    }
+
+    if(prev == NULL){
+        prev->next = adj[vertex];
+    }else{
+        prev->next = temp->next
+    }
+
+    delete temp;
+}
 void displayRoutes(){
     for(int i=0;i<v;i++){
         cout<<cities[i]<<":";
