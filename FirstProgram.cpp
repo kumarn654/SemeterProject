@@ -42,12 +42,7 @@ Node* adj[v]= {NULL};
 
 // }
 
-class Heap{
-    int arr[max];
-    int size = 0;
 
-    
-}
 void BuildGraph(int u,int  v,int weight){
     Node* newNode = new Node;
     newNode->data = cities[u];
