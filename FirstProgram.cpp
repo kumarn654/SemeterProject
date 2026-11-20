@@ -62,28 +62,28 @@ void addEdge(){
     insert(2,3,50);
 
 }
-void removeEdge(int vertex,string value){
-    Node* temp = adj[vertex];
-    Node* prev = NULL;
+// void removeEdge(int vertex,string value){
+//     Node* temp = adj[vertex];
+//     Node* prev = NULL;
     
-    while(temp!=NULL && temp->data!=value){
-        prev = temp;
-        temp = temp->next;
+//     while(temp!=NULL && temp->data!=value){
+//         prev = temp;
+//         temp = temp->next;
 
-    }
+//     }
 
-    if(temp == NULL){
-        return;
-    }
+//     if(temp == NULL){
+//         return;
+//     }
 
-    if(prev == NULL){
-        prev->next = adj[vertex];
-    }else{
-        prev->next = temp->next
-    }
+//     if(prev == NULL){
+//         adj[vertex] = temp->next;
+//     }else{
+//         prev->next = temp->next;
+//     }
 
-    delete temp;
-}
+//     delete temp;
+// }
 void displayRoutes(){
     for(int i=0;i<v;i++){
         cout<<cities[i]<<":";
@@ -131,6 +131,9 @@ void displayRoutes(){
 
 int main(){
         addEdge();
+        
+        removeEdge(0,"Karachi");
+        removeEdge(1,"Makli");
         displayRoutes();
     
 //     cout<<"City Route PLanner"<<endl;
@@ -166,7 +169,7 @@ int main(){
 
 // cout<<"Hello World"<<endl;
 
-
+    
 
     return 0;
 }
